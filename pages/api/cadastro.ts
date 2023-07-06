@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import type {RespostaPadraoMsg} from '../../types/RespostaPadraoMsg';
 import type {CadastroRequisicao} from '../../types/CadastroRequisicao';
 import {UsuarioModel} from '../../models/UsuarioModel';
-import {conectarMongoDB} from '../../middlewares/conectarMongooDB';
+import {conectarMongooDB} from '../../middlewares/conectarMongooDB';
 import md5 from 'md5';
 import {upload, uploadImagemCosmic} from '../../services/uploadImagemCosmic';
 import nc from 'next-connect'
@@ -52,4 +52,4 @@ const handler = nc()
         }
     }
 
-export default conectarMongoDB(handler);
+export default conectarMongooDB(handler);
