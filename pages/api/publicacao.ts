@@ -7,6 +7,7 @@ import { validarTokenJWT } from '@/middlewares/validarTokenJWT';
 import { json } from 'stream/consumers';
 import {PublicacaoModel} from '../../models/PublicacaoModel'
 import {UsuarioModel} from '../../models/UsuarioModel'
+import { politicaCORS } from '@/middlewares/politicaCORS2';
 
 const handler = nc()
     .use(upload.single('file'))
@@ -58,4 +59,4 @@ const handler = nc()
         }
     }
 
-    export default validarTokenJWT(conectarMongooDB(handler));
+    export default politicaCORS(validarTokenJWT(conectarMongooDB(handler)));
